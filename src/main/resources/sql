@@ -54,8 +54,8 @@ ALTER TABLE ads ADD CONSTRAINT car_id FOREIGN KEY (car_id) REFERENCES car(ID);
 ALTER TABLE deal ADD CONSTRAINT ads_id FOREIGN KEY(ads_id) REFERENCES ads(ID);
 
 
-insert into ads (user_id, car_id, price )
-values(1, 2, 100500);
+insert into ads (user_id, car_id, price,deal_id )
+values(1, 2, 100500,4);
 insert into ads (user_id, car_id, price )
 values(3, 4, 1);
 insert into ads (user_id, car_id, price )
@@ -78,5 +78,8 @@ values(2, 'decline', 10034);
 insert into deal (ads_id, status, deal_price, )
 values(3, 'active', 1005001);
 
-insert into ads (user_id, car_id, price, deal_id )
-values(1, 1, 100500, 4);
+
+
+
+
+
