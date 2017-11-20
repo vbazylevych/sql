@@ -1,13 +1,13 @@
 INSERT INTO car (license, color, year, model)
 VALUES ( 'krot', 'blue', 1998, 'opel');
 INSERT INTO car (license, color, year, model)
-VALUES ( 'ttt', 'blue', 1901, 'opel');
+VALUES ( 'ttt', 'blue', 2017, 'opel');
 INSERT INTO car (license, color, year, model)
 VALUES ( 'yy', 'red', 2017, 'mazda');
 INSERT INTO car (license, color, year, model)
 VALUES ( 'tuuutt', 'red', 2017, 'kotiazda');
 INSERT INTO car (license, color, year, model)
-VALUES ( 'au197345', 'pink', 2000, 'bmv');
+VALUES ( 'au197345', 'pink', 2017, 'bmv');
 
 INSERT INTO user (name, surname, contact_info)
 VALUES ( 'vasia', null, 'tel 063444445 adres Agetstvo " Mir');
@@ -43,7 +43,7 @@ values(1, 'accept', 1005001,6);
 insert into deal (ads_id, status, price,user_id )
 values(2, 'active', 10034,3);
 insert into deal (ads_id, status, price, user_id)
-values(2, 'active', 100500,4);
+values(2, 'accept', 100500,4);
 insert into deal (ads_id, status, price,user_id )
 values(4, 'decline', 10034,5);
 
@@ -55,3 +55,7 @@ WHERE id=1;
 UPDATE ads
 SET deal_id = 1
 WHERE id=3;
+
+UPDATE ads
+SET deal_id = 6
+WHERE id=2;

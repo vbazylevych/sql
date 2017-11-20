@@ -1,0 +1,7 @@
+select a.car_id , d.id, max (d.price ) from ads a
+inner join deal d on a.id = d.ads_id
+where a.deal_id is NULL group by car_id;
+
+Select car_id from ads where id in (select ads_id from deal where status = 'accept' order by   price desc  limit 1) ;
+
+Select count(*), year from CAR JOIN ADS ON CAR.ID = ADS.CAR_ID  where ads.deal_id is not null group by YEAR limit 1 ;
