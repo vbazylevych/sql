@@ -11,19 +11,19 @@ VALUES ( 'au197345', 'pink', 2017, 'bmv');
 INSERT INTO car (license, color, year, model)
 VALUES ( 'a197345', 'pink', 1989, 'leksus');
 
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'vasia', null, 'tel 063444445 adres Agetstvo " Mir');
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'vasia', 'kolia', 'tel 911 ');
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'alena', 'ignatieva',  'kot@gmail.com');
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'Petr', 'ignatieva',  'kpetia@gmail.com');
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'uuu', '',  '044444444');
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'rrr', 'fff',  'golub');
-INSERT INTO user (name, surname, contact_info)
+INSERT INTO user (name, surname, contact)
 VALUES ( 'koshkva', 'koshkina',  '064784848');
 
 insert into ads (user_id, car_id, price )
@@ -54,11 +54,17 @@ values(2, 'active', 10034,3);
 insert into deal (ads_id, status, price, user_id)
 values(2, 'accept', 100500,4);
 insert into deal (ads_id, status, price,user_id )
-values(4, 'decline', 10034,5);
+values(4, 'active', 10034,5);
+insert into deal (ads_id, status, price,user_id )
+values(4, 'active', 10034,6);
 insert into deal (ads_id, status, price,user_id )
 values(5, 'accept', 10000,6);
 insert into deal (ads_id, status, price,user_id )
 values(7, 'accept', 9000, 1);
+insert into deal (ads_id, status, price,user_id )
+values(6, 'active', 9000, 1);
+insert into deal (ads_id, status, price,user_id )
+values(6, 'active', 10000, 2);
 
 UPDATE ads
 SET deal_id = 4

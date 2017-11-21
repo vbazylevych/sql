@@ -1,37 +1,39 @@
-DROP TABLE IF EXISTS car;
+DROP TABLE IF EXISTS stat;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS deal;
+DROP TABLE if EXISTS car;
+DROP TABLE IF EXISTS ads;
+
 CREATE TABLE car(
-id int AUTO_INCREMENT PRIMARY KEY ,
+id INT AUTO_INCREMENT PRIMARY KEY ,
 license VARCHAR(25) NOT NULL UNIQUE,
 color VARCHAR(50),
-year INT CHECK(year > 1900),
+year INT CHECK (year > 1900),
 model VARCHAR(50)
 );
 
-DROP TABLE IF EXISTS user;
 CREATE TABLE user(
-id int AUTO_INCREMENT PRIMARY KEY ,
+id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(20) NOT NULL ,
 surname VARCHAR(50),
-contact_info VARCHAR(255) NOT NULL
+contact VARCHAR(255) NOT NULL
 );
 
-DROP TABLE IF EXISTS deal;
 CREATE TABLE deal(
-id int AUTO_INCREMENT PRIMARY KEY ,
-ads_id  int ,
+id INT AUTO_INCREMENT PRIMARY KEY ,
+ads_id  INT,
 status ENUM ('active', 'decline', 'accept'),
-user_id int NOT NULL ,
-price int check (price > 0),
+user_id INT NOT NULL ,
+price INT check (price > 0),
 FOREIGN KEY(user_id)  REFERENCES user(ID),
 );
 
-DROP TABLE IF EXISTS ads;
 CREATE TABLE ads(
-id int AUTO_INCREMENT PRIMARY KEY ,
-user_id  int NOT NULL  ,
-car_id int NOT NULL,
-price int check (price > 0),
-deal_id int,
+id INT AUTO_INCREMENT PRIMARY KEY ,
+user_id  INT NOT NULL  ,
+car_id INT NOT NULL,
+price INT check (price > 0),
+deal_id INT,
 FOREIGN KEY(user_id)  REFERENCES user(ID),
 FOREIGN KEY (deal_id) REFERENCES deal(ID),
 FOREIGN KEY (car_id) REFERENCES car(ID)

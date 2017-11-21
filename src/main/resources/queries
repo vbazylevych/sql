@@ -1,8 +1,0 @@
-select a.car_id , d.id, max (d.price ) from ads a
-inner join deal d on a.id = d.ads_id
-where a.deal_id is NULL group by car_id;
-
-select car_id from ads join  (select ads_id from deal where price in (select max(price) from deal where status = 'accept') AND status = 'accept') as A on ads.id = A.ads_id;
-
-CREATE VIEW Stat AS Select count(*)  as count, year from CAR JOIN ADS ON CAR.ID = ADS.CAR_ID  where ads.deal_id is not null group by YEAR;
-Select year from Stat where count = (select max(count) from Stat) ;
