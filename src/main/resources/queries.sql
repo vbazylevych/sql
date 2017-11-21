@@ -16,6 +16,7 @@ JOIN (SELECT ads_id
       AND status = 'accept') AS A
 ON ads.id = A.ads_id;
 
+
 CREATE VIEW Stat AS
 SELECT COUNT(*) as count, year FROM car
 JOIN ADS
@@ -25,3 +26,6 @@ GROUP BY year;
 
 SELECT year FROM Stat WHERE count = (SELECT MAX(count)
                                      FROM Stat);
+
+select year from (select count(*) as count, year from car join (select car_id from ads where deal_id is not null) ON car_id=id group by year)
+where count = (select max (count) from (select count(*) as count, year from car join (select car_id from ads where deal_id is not null) ON car_id=id group by year ))
