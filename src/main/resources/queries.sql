@@ -27,5 +27,8 @@ GROUP BY year;
 SELECT year FROM Stat WHERE count = (SELECT MAX(count)
                                      FROM Stat);
 
+select count(*), year from car join (select car_id from ads where deal_id is not null) ON car_id=id group by year ;
+select max (count) from (select count(*) as count, year from car join (select car_id from ads where deal_id is not null) ON car_id=id group by year )
+
 select year from (select count(*) as count, year from car join (select car_id from ads where deal_id is not null) ON car_id=id group by year)
 where count = (select max (count) from (select count(*) as count, year from car join (select car_id from ads where deal_id is not null) ON car_id=id group by year ))
