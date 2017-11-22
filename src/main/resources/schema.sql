@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS stat;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS deal;
 DROP TABLE if EXISTS car;
@@ -21,7 +20,7 @@ contact VARCHAR(255) NOT NULL
 
 CREATE TABLE deal(
 id INT AUTO_INCREMENT PRIMARY KEY ,
-ads_id  INT,
+ads_id INT NOT NULL,
 status ENUM ('active', 'decline', 'accept'),
 user_id INT NOT NULL ,
 price INT check (price > 0),
@@ -30,8 +29,8 @@ FOREIGN KEY(user_id)  REFERENCES user(ID),
 
 CREATE TABLE ads(
 id INT AUTO_INCREMENT PRIMARY KEY ,
-user_id  INT NOT NULL  ,
-car_id INT NOT NULL,
+user_id INT NOT NULL  ,
+car_id  INT NOT NULL UNIQUE,
 price INT check (price > 0),
 deal_id INT,
 FOREIGN KEY(user_id)  REFERENCES user(ID),

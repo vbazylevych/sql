@@ -10,6 +10,8 @@ INSERT INTO car (license, color, year, model)
 VALUES ( 'au197345', 'pink', 2017, 'bmv');
 INSERT INTO car (license, color, year, model)
 VALUES ( 'a197345', 'pink', 1989, 'leksus');
+INSERT INTO car (license, color, year, model)
+VALUES ( 'hhh08', 'pink', 2017, 'leksus');
 
 INSERT INTO user (name, surname, contact)
 VALUES ( 'vasia', null, 'tel 063444445 adres Agetstvo " Mir');
@@ -37,7 +39,7 @@ values(4,2, 25000);
 insert into ads (user_id, car_id, price )
 values(5,3, 25000);
 insert into ads (user_id, car_id, price )
-values(5,3, 25000);
+values(5,7, 25000);
 insert into ads (user_id, car_id, price )
 values(6,6, 25001);
 
