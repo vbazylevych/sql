@@ -5,25 +5,18 @@ ON a.id = d.ads_id
 WHERE a.deal_id IS NULL
 GROUP BY car_id;
 
-SELECT car_id
-FROM ads
-WHERE id IN (SELECT ads_id
-      FROM deal
-      WHERE price in
-                   (SELECT MAX (price)
-                    FROM deal
-                    WHERE status = 'accept')
-      AND status = 'accept')
 
 
-SELECT year FROM
-                 (SELECT count(*) as count , year FROM car
-                 WHERE id IN
-                           (SELECT car_id FROM ads WHERE deal_id IS NOT NULL)
-                 GROUP BY year)
-WHERE count = (SELECT MAX(count) FROM
-                                     (SELECT count(*) as count, year FROM car
-                                      WHERE id IN
-                                                 (SELECT car_id FROM ads WHERE deal_id IS NOT NULL)
-                                      GROUP BY year)
-              )
+SELECT car_id FROM
+                  (SELECT car_id, deal.price FROM ads
+                   JOIN deal
+                   ON ads.deal_id = deal.id
+                   ORDER BY price DESC
+                   limit 1);
+
+ SELECT year FROM
+                 (SELECT COUNT (*), year FROM car
+                  JOIN ads ON car.id = ads.car_id
+                  WHERE ads.deal_id IS NOT NULL
+                  GROUP BY year
+                  limit 1);
